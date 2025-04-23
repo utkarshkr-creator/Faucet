@@ -1,0 +1,195 @@
+/* --- Global & Body --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6; /* Lighter page background */
+  color: #333;
+}
+
+/* --- App Container --- */
+.App {
+  max-width: 650px; /* Slightly wider */
+  margin: 40px auto;
+  padding: 30px 40px; /* More padding */
+  background-color: #ffffff; /* White card background */
+  border-radius: 12px; /* Softer corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* More pronounced shadow */
+  text-align: center;
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+/* --- Headings --- */
+h1 {
+  color: #2c3e50; /* Dark blue-grey */
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* --- Paragraphs & Text --- */
+p {
+  margin: 12px 0;
+  line-height: 1.6;
+  color: #555; /* Softer text color */
+  word-wrap: break-word;
+}
+
+/* --- Buttons --- */
+button {
+  padding: 12px 25px; /* Larger padding */
+  margin: 10px 5px;
+  font-size: 1rem; /* Relative font size */
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px; /* Match container */
+  border: none; /* Remove default border */
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.1s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+}
+
+button:active {
+  transform: translateY(1px); /* Click effect */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Button Style (Connect / Request) */
+button:not(.secondary-button):not(:disabled) {
+  background-color: #3498db; /* Primary blue */
+  color: white;
+}
+button:not(.secondary-button):not(:disabled):hover {
+  background-color: #2980b9; /* Darker blue on hover */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Secondary Button Style (Disconnect / Switch Network Inline) */
+button.secondary-button,
+.wrong-network-section button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+button.secondary-button:hover:not(:disabled),
+.wrong-network-section button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+.wrong-network-section button {
+  padding: 6px 12px; /* Smaller inline button */
+  margin-left: 10px;
+  font-size: 0.9rem;
+}
+
+/* Disabled Button State */
+button:disabled {
+  background-color: #bdc3c7; /* Greyed out */
+  color: #7f8c8d;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+/* Specific State Button Text (e.g., Cooldown Timer) */
+button:disabled[aria-label*="Wait"] { /* Style the cooldown button */
+   background-color: #f39c12; /* Orange for warning/waiting */
+   color: white;
+   opacity: 0.8;
+}
+
+
+/* --- Wallet & Info Sections --- */
+.wallet-info, .balance-info, .faucet-interaction {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid #eee; /* Separator */
+}
+
+.wallet-info p, .balance-info p {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.wallet-info span.address {
+  font-family: 'Courier New', Courier, monospace; /* Monospace for address */
+  font-weight: bold;
+  color: #34495e; /* Darker grey */
+}
+
+/* --- Network Warnings --- */
+.wrong-network-section {
+  color: #e74c3c; /* Red for warning */
+  background-color: #fcebea;
+  border: 1px solid #f7cdc9;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+  display: flex; /* Align text and button */
+  align-items: center;
+  justify-content: center; /* Center contents */
+}
+
+.wrong-network-section p {
+  margin: 0;
+  color: #c0392b; /* Darker red text */
+}
+
+/* --- Messages (Transaction/Error) --- */
+.message {
+  padding: 15px 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  word-wrap: break-word; /* Handle long tx hashes */
+}
+
+.message-tx {
+  background-color: #e8f5e9; /* Light green */
+  color: #2e7d32; /* Dark green text */
+  border: 1px solid #a5d6a7;
+}
+.message-tx a { /* Style links within messages */
+  color: #1b5e20;
+  font-weight: bold;
+  text-decoration: none;
+}
+.message-tx a:hover {
+  text-decoration: underline;
+}
+
+
+.message-error {
+  background-color: #ffebee; /* Light red */
+  color: #c62828; /* Dark red text */
+  border: 1px solid #ef9a9a;
+}
+
+.loading-indicator { /* Basic spinner if you add one */
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block; /* Or 'block' if needed */
+    margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* --- Minor Adjustments --- */
+code { /* Style inline code if you use it */
+  background-color: #ecf0f1;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+}
